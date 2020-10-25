@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="345px" height="46px" viewBox="0 0 345 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+  <title>JSON SERVER</title>
+  <desc>Created with Sketch.</desc>
+  <defs>
+    <text id="text-1" font-family="AvenirNext-BoldItalic, Avenir Next" font-size="50" font-style="italic" font-weight="bold">
+      <tspan x="11" y="50">JSON SERVER</tspan>
+    </text>
+    <filter x="-2.7%" y="-7.4%" width="104.7%" height="120.6%" filterUnits="objectBoundingBox" id="filter-2">
+      <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+      <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+      <feColorMatrix values="0 0 0 0 0.590806159   0 0 0 0 0.590806159   0 0 0 0 0.590806159  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+    </filter>
+  </defs>
+  <g id="EditPage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Desktop-HD" transform="translate(-5.000000, -11.000000)">
+      <g id="JSON-SERVER" fill="#676767">
+        <use fill-opacity="1" filter="url(#filter-2)" xlink:href="#text-1"></use>
+        <use fill-rule="evenodd" xlink:href="#text-1"></use>
+        <use fill-opacity="1" xlink:href="#text-1"></use>
+      </g>
+      <g id="EditButton" transform="translate(111.000000, 49.000000)" fill="#FFFFFF" font-family="AvenirNext-BoldItalic, Avenir Next" font-size="50" font-style="italic" font-weight="bold">
+        <text id="Edit">
+          <tspan x="99" y="50">Edit</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>

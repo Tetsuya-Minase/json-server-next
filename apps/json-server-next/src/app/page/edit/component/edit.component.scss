@@ -1,0 +1,47 @@
+@charset "UTF-8";
+@import "apps/json-server-next/src/app/common/css/_variable.scss";
+
+.edit {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: $edit-font-black;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.menu__register {
+  display: inline-block;
+}
+
+.form {
+  display: inline-block;
+  width: 80%;
+}
+.form__name {
+  margin-bottom: 5px;
+}
+.form__name__label {
+  display: block;
+  margin-bottom: 5px;
+}
+.form__name__input {
+  border: 2px solid $gray;
+}
+.form__raw-data__area {
+  height: 30vh;
+  width: 80%;
+}
+
+.form__key-value__button {
+  display: block;
+  margin-bottom: 5px;
+}
+.form__key-value__data {
+  margin-bottom: 5px;
+}

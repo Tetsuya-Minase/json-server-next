@@ -1,0 +1,41 @@
+@charset "UTF-8";
+@import "../../css/_variable.scss";
+
+$item-height: 50px;
+$item-width: 250px;
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 75px;
+}
+
+.header__logo{
+  display: block;
+  height: $item-height;
+}
+.header__nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav__list{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin-right: $item-width;
+  width: 700px;
+}
+
+.nav__item {
+  border: $header-border-black solid 1px;
+  color: $header-link-black;
+  display: block;
+  height: $item-height;
+  width: $item-width;
+  line-height: $item-height;
+  text-align: center;
+  text-decoration: none;
+}

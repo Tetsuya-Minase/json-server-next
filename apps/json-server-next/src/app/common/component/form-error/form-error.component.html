@@ -1,0 +1,8 @@
+<div *ngIf="form.invalid && (form.dirty || form.touched)" class="form-error">
+  <span *ngIf="form.hasError('required')" class="form-error__required">
+    必須です。
+  </span>
+  <span *ngIf="form.hasError('jsonValid')" class="form-error__json-invalid">
+    JSON形式ではありません。
+  </span>
+</div>
