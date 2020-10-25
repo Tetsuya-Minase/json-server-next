@@ -1,0 +1,9 @@
+<atom-button type="primary" buttonText="リロード" (clickEvent)="onClick()"></atom-button>
+<ul>
+  <li *ngFor="let item of list$ | async">
+    <details>
+      <summary>{{item.name}}</summary>
+      {{item.data | json}}
+    </details>
+  </li>
+</ul>
