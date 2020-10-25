@@ -1,11 +1,18 @@
 import { Module } from '@nestjs/common';
-
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppController } from './interfaces/controller/app.controller';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+import { JsonApiModule } from './modules/json-api.module';
+import { JsonApiService } from './application/json-api.service';
 
 @Module({
-  imports: [],
+  imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../../', 'dist/json-server'),
+    }),
+    JsonApiModule,
+  ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [JsonApiService],
 })
 export class AppModule {}
