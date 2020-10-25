@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   AbstractControl,
   FormArray,
@@ -6,7 +6,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-import { MatSlideToggleChange } from '@angular/material';
+// import { MatSlideToggleChange } from '@angular/material';
 import { EditService } from '../service/edit.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { EditService } from '../service/edit.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class EditComponent implements OnInit {
+export class EditComponent {
   readonly formGroup = this.fb.group({
     name: ['', Validators.required],
     rawData: ['', [Validators.required, this.jsonValidator()]],
@@ -44,11 +44,9 @@ export class EditComponent implements OnInit {
     return this.formGroup.get('keyValueList') as FormArray;
   }
 
-  ngOnInit() {}
-
-  changeSlideToggle(event: MatSlideToggleChange) {
-    this.isRawData = event.checked;
-  }
+  // changeSlideToggle(event: MatSlideToggleChange) {
+  //   this.isRawData = event.checked;
+  // }
 
   /**
    * KeyValueListの追加

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EditComponent } from './component/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditRoutingModule } from './edit-routing.module';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+// import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormErrorComponent } from '../../common/component/form-error/form-error.component';
 import { EditService } from './service/edit.service';
 import { ButtonModule } from '../../common/atoms/button/button.module';
@@ -15,7 +15,7 @@ import { ButtonModule } from '../../common/atoms/button/button.module';
     FormsModule,
     ReactiveFormsModule,
     EditRoutingModule,
-    MatSlideToggleModule,
+    // MatSlideToggleModule,
     ButtonModule,
   ],
   providers: [EditService],
