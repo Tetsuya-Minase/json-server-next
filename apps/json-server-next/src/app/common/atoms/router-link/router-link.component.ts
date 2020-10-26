@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { LinkObject } from '../../../model/objects/link.object';
+import { LinkValue } from '../../../model/objects/LinkValue';
 
 @Component({
   selector: 'atom-router-link',
@@ -7,5 +7,5 @@ import { LinkObject } from '../../../model/objects/link.object';
   styleUrls: ['./router-link.component.scss'],
 })
 export class RouterLinkComponent {
-  @Input() linkObject: LinkObject;
+  @Input() linkObject: LinkValue;
 }
