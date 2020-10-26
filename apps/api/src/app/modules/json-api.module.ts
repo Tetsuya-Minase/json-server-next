@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { JsonController } from '../interfaces/api/json-controller/JsonController';
+import { JsonController } from '../interfaces/api/json-controller/json.controller';
 import { JsonDataRepository } from '../infrastructure/repository/JsonDataRepository';
 import { JsonApiService } from '../application/json-api.service';
 import { JsonDataFormatter } from '../domain/service/JsonDataFormatter';
