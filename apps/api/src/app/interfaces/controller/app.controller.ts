@@ -6,6 +6,6 @@ import * as path from 'path';
 export class AppController {
   @Get()
   getRoot(@Res() res: Response): void {
-    return res.sendFile(path.join(__dirname, '../../../../dist/json-server/index.html'));
+    return res.sendFile(path.join(__dirname, '../../../../../../dist/apps/json-server-next/index.html'));
   }
 }

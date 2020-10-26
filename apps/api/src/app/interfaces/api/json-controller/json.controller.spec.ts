@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { JsonController } from './JsonController';
+import { JsonController } from './json.controller';
 import { JsonApiService } from '../../../application/json-api.service';
 
 describe('AppController', () => {
@@ -16,7 +16,7 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+      expect(appController.getJsonList(1, 10, true)).toBe('Hello World!');
     });
   });
 });
