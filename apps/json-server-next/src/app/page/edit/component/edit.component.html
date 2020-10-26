@@ -1,8 +1,8 @@
 <div class="edit">
   <div class="menu">
-    <div>
-      <span>Key-Value Data.</span>
-<!--      <mat-slide-toggle (change)="changeSlideToggle($event)">Raw Data.</mat-slide-toggle>-->
+    <div class="menu__switch">
+      <span class="switch__before-text">Key-Value Data.</span>
+      <mat-slide-toggle (change)="changeSlideToggle($event)">Raw Data.</mat-slide-toggle>
     </div>
     <atom-button class="menu__register" buttonText="登録" type="primary" (clickEvent)="register()"></atom-button>
   </div>

@@ -6,7 +6,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-// import { MatSlideToggleChange } from '@angular/material';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { EditService } from '../service/edit.service';
 
 @Component({
@@ -44,9 +44,9 @@ export class EditComponent {
     return this.formGroup.get('keyValueList') as FormArray;
   }
 
-  // changeSlideToggle(event: MatSlideToggleChange) {
-  //   this.isRawData = event.checked;
-  // }
+  changeSlideToggle(event: MatSlideToggleChange) {
+    this.isRawData = event.checked;
+  }
 
   /**
    * KeyValueListの追加
