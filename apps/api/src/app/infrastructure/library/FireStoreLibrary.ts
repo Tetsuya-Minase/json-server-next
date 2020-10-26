@@ -8,13 +8,13 @@ export class FireStoreLibrary {
   private readonly DB_CLIENT: admin.firestore.Firestore;
 
   constructor() {
-    console.log(process.env.FIREBASE_CONFIG);
-    console.log(functions.config().database);
-    admin.initializeApp({
-      credential: admin.credential.applicationDefault(),
-      databaseURL: functions.config().database.url,
-    });
-    this.DB_CLIENT = admin.firestore();
+    // console.log(process.env.FIREBASE_CONFIG);
+    // console.log(functions.config().database);
+    // admin.initializeApp({
+    //   credential: admin.credential.applicationDefault(),
+    //   databaseURL: functions.config().database.url,
+    // });
+    // this.DB_CLIENT = admin.firestore();
   }
   async getAll<T>(): Promise<T[]> {
     return await this.DB_CLIENT.collection('json')
