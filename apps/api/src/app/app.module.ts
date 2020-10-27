@@ -8,7 +8,7 @@ import { JsonApiService } from './application/json-api.service';
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../../../dist/apps/json-server-next'),
+      rootPath: join(__dirname, 'public/template'),
     }),
     JsonApiModule,
   ],
