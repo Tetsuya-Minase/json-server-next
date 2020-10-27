@@ -1,4 +1,4 @@
-import { Injectable,  } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import * as admin from 'firebase-admin';
 import QuerySnapshot = admin.firestore.QuerySnapshot;
 import { EnvironmentService } from '../../domain/service/environment.service';
@@ -16,11 +16,19 @@ export class FireStoreLibrary {
   }
 
   async getAll<T>(): Promise<T[]> {
-    return await this.DB_CLIENT.collection('json')
+    return this.DB_CLIENT
+      .collection('sample')
       .get()
-      .then((data: QuerySnapshot<T>) => {
-        console.log('data: ', data);
-        return [];
+      .then(docs => {
+        let results = [];
+        docs.forEach(doc => {
+          if (!doc.exists) {
+            return;
+          }
+          console.log(doc.data());
+          results.push(doc.data());
+        })
+        return [...results];
       });
   }
 
