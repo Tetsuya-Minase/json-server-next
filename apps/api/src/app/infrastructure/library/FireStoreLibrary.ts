@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import QuerySnapshot = admin.firestore.QuerySnapshot;
 
@@ -8,13 +7,11 @@ export class FireStoreLibrary {
   private readonly DB_CLIENT: admin.firestore.Firestore;
 
   constructor() {
-    // console.log(process.env.FIREBASE_CONFIG);
-    // console.log(functions.config().database);
-    // admin.initializeApp({
-    //   credential: admin.credential.applicationDefault(),
-    //   databaseURL: functions.config().database.url,
-    // });
-    // this.DB_CLIENT = admin.firestore();
+    admin.initializeApp({
+      credential: admin.credential.cert(JSON.parse(process.env.SERVICE_ACCOUNT)),
+      databaseURL: process.env.DATABASE_URL
+    });
+    this.DB_CLIENT = admin.firestore();
   }
   async getAll<T>(): Promise<T[]> {
     return await this.DB_CLIENT.collection('json')
