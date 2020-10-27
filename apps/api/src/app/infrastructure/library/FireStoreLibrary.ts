@@ -1,18 +1,20 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable,  } from '@nestjs/common';
 import * as admin from 'firebase-admin';
 import QuerySnapshot = admin.firestore.QuerySnapshot;
+import { EnvironmentService } from '../../domain/service/environment.service';
 
 @Injectable()
 export class FireStoreLibrary {
   private readonly DB_CLIENT: admin.firestore.Firestore;
 
-  constructor() {
+  constructor(private readonly environmentService: EnvironmentService) {
     admin.initializeApp({
-      credential: admin.credential.cert(JSON.parse(process.env.SERVICE_ACCOUNT)),
-      databaseURL: process.env.DATABASE_URL
+      credential: admin.credential.cert(environmentService.serviceAccount),
+      databaseURL: environmentService.dbUrl
     });
     this.DB_CLIENT = admin.firestore();
   }
+
   async getAll<T>(): Promise<T[]> {
     return await this.DB_CLIENT.collection('json')
       .get()
