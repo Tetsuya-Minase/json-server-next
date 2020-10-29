@@ -21,7 +21,7 @@ export class JsonApiService {
    * @return {@link JsonListResponse}
    */
   async getJsonList(query: ListRequestQuery): Promise<JsonListResponse> {
-    const response = await this.repository.fetchJsonAll();
+    const response = await this.repository.fetchAll();
     return query.isAll
       ? this.formatter.toAllResponse(response)
       : this.formatter.toPagingResponse(query, response);
@@ -32,21 +32,21 @@ export class JsonApiService {
    * @param key
    */
   async getJsonByKey(key: string): Promise<JsonDataValue> {
-    return this.formatter.toResponse(await this.repository.fetchJsonByKey(key));
+    return await this.repository.fetchByKey(key);
   }
 
   /**
    * Register Json Data.
    */
-  async registerJsonData(name: string, jsonData: JsonDataValue): Promise<void> {
-    const registerEntity = this.formatter.toEntity(name, jsonData);
-    await this.repository.registerJson(registerEntity);
+  async registerJsonData(key: string, jsonData: JsonDataValue): Promise<void> {
+    await this.repository.register(key, jsonData);
   }
 
   /**
-   * delete all.
+   * delete by key.
+   * @param key key名
    */
-  async deleteAll(): Promise<void> {
-    await this.repository.deleteAll();
+  async deleteByKey(key: string): Promise<void> {
+    await this.repository.deleteByKey(key);
   }
 }

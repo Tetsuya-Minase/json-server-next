@@ -6,6 +6,7 @@ import {
   HttpCode,
   Param,
   Put,
+  Query,
 } from '@nestjs/common';
 import { JsonApiService } from '../../../application/json-api.service';
 import { HttpStatusCode } from '../../../domain/constants/HttpStatusCode';
@@ -24,19 +25,19 @@ export class JsonController {
    * getAll Json List.
    * @param start start index.
    * @param result result count.
-   * @param istAll getAll all data.
+   * @param isAll when true, getAll all data.
    */
   @Get()
   @HttpCode(HttpStatusCode.OK)
   async getJsonList(
-    @Param('start') start: number,
-    @Param('result') result: number,
-    @Param('isAll') istAll: boolean,
+    @Query('start') start: number,
+    @Query('result') result: number,
+    @Query('isAll') isAll: boolean = false,
   ): Promise<JsonListResponse> {
     const requestQuery = new ListRequestQueryBuilder()
       .setStart(start)
       .setResult(result)
-      .setIsAll(istAll)
+      .setIsAll(isAll)
       .build();
     return await this.service.getJsonList(requestQuery);
   }
@@ -51,18 +52,18 @@ export class JsonController {
     return await this.service.getJsonByKey(key);
   }
 
-  @Put(':name')
+  @Put(':key')
   @HttpCode(HttpStatusCode.NO_CONTENT)
   async registerJsonData(
-    @Param('name') name: string,
+    @Param('key') key: string,
     @Body() body: JsonDataValue,
   ): Promise<void> {
-    await this.service.registerJsonData(name, body);
+    await this.service.registerJsonData(key, body);
   }
 
-  @Delete()
+  @Delete(':key')
   @HttpCode(HttpStatusCode.NO_CONTENT)
-  async deleteAll(): Promise<void> {
-    await this.service.deleteAll();
+  async deleteAll(@Param('key') key: string): Promise<void> {
+    await this.service.deleteByKey(key);
   }
 }

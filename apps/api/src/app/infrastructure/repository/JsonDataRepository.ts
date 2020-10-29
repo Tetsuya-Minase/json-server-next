@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { JsonDataEntity } from '../../domain/model/entity/JsonDataEntity';
 import { FireStoreLibrary } from '../library/FireStoreLibrary';
+import { JsonDataValue } from '../../domain/model/object/JsonDataValue';
+import { JsonDataEntity } from '../../domain/model/entity/JsonDataEntity';
 
 /**
  * Json Data Repository
@@ -13,8 +14,8 @@ export class JsonDataRepository {
    * fetch json list.
    * @return {@link JsonDataValue}
    */
-  async fetchJsonAll(): Promise<JsonDataEntity[]> {
-    return await this.fireStoreLibrary.getAll<JsonDataEntity>();
+  async fetchAll(): Promise<JsonDataEntity[]> {
+    return await this.fireStoreLibrary.getAll();
   }
 
   /**
@@ -22,18 +23,24 @@ export class JsonDataRepository {
    * @param key json key
    * @return {@link JsonDataValue}
    */
-  async fetchJsonByKey(key: string): Promise<JsonDataEntity> {
-    return this.fireStoreLibrary.getByKey<JsonDataEntity>(key);
+  async fetchByKey(key: string): Promise<JsonDataEntity> {
+    return this.fireStoreLibrary.getByKey(key);
   }
 
   /**
    * register Json Data.
+   * @param key key名
+   * @param value 登録するデータ
    */
-  async registerJson(entity: JsonDataEntity): Promise<void> {
-    await this.fireStoreLibrary.registerOne(entity);
+  async register(key: string, value: JsonDataValue): Promise<void> {
+    await this.fireStoreLibrary.register(key, value);
   }
 
-  async deleteAll(): Promise<void> {
-    await this.fireStoreLibrary.deleteAll();
+  /**
+   * delete json data by key.
+   * @param key key名
+   */
+  async deleteByKey(key: string): Promise<void> {
+    await this.fireStoreLibrary.deleteByKey(key);
   }
 }
