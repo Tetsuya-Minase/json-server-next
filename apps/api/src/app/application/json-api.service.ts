@@ -39,7 +39,6 @@ export class JsonApiService {
    * Register Json Data.
    */
   async registerJsonData(key: string, jsonData: JsonDataValue): Promise<void> {
-    // const registerEntity = this.formatter.toEntity(name, jsonData);
     await this.repository.register(key, jsonData);
   }
 
