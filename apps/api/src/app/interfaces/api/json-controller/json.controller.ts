@@ -36,7 +36,7 @@ export class JsonController {
     const requestQuery = new ListRequestQueryBuilder()
       .setStart(start)
       .setResult(result)
-      .setIsAll(istAll)
+      .setIsAll(true)
       .build();
     return await this.service.getJsonList(requestQuery);
   }
@@ -51,18 +51,18 @@ export class JsonController {
     return await this.service.getJsonByKey(key);
   }
 
-  @Put(':name')
+  @Put(':key')
   @HttpCode(HttpStatusCode.NO_CONTENT)
   async registerJsonData(
-    @Param('name') name: string,
+    @Param('key') key: string,
     @Body() body: JsonDataValue,
   ): Promise<void> {
-    await this.service.registerJsonData(name, body);
+    await this.service.registerJsonData(key, body);
   }
 
-  @Delete()
+  @Delete(':key')
   @HttpCode(HttpStatusCode.NO_CONTENT)
-  async deleteAll(): Promise<void> {
-    await this.service.deleteAll();
+  async deleteAll(@Param('key') key: string): Promise<void> {
+    await this.service.deleteByKey(key);
   }
 }
