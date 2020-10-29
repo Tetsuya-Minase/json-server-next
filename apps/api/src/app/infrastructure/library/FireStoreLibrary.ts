@@ -17,7 +17,7 @@ export class FireStoreLibrary {
       databaseURL: environmentService.dbUrl
     });
     this.DB_CLIENT = admin.firestore();
-    this.DB_COLLECTION = admin.firestore().collection('sample');
+    this.DB_COLLECTION = admin.firestore().collection(environmentService.dbCollection);
   }
 
   async getAll(): Promise<JsonDataEntity[]> {
