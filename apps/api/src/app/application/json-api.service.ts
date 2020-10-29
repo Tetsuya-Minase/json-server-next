@@ -32,7 +32,7 @@ export class JsonApiService {
    * @param key
    */
   async getJsonByKey(key: string): Promise<JsonDataValue> {
-    return this.formatter.toResponse(await this.repository.fetchByKey(key));
+    return await this.repository.fetchByKey(key);
   }
 
   /**

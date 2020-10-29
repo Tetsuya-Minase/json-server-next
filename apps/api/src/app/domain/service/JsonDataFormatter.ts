@@ -42,13 +42,6 @@ export class JsonDataFormatter {
     };
   }
 
-  toResponse(value: JsonDataEntity): any[] {
-    return Object.entries(value).map(([key, value]) => ({
-      key,
-      data: value
-    }));
-  }
-
   private paging(
     start: number,
     result: number,
