@@ -29,7 +29,6 @@ export class FireStoreLibrary {
       }
       result.push({ key: doc.id, data: doc.data() });
     });
-    console.log('get all result: ', result);
     return result;
   }
 
