@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listService.getList();
+    this.listService.fetchList();
   }
 
   onClick() {

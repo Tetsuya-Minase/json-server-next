@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, Effect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { HttpService } from '../service/http.service';
-import { fetchError, fetchList, fetchSuccess } from '../actions/index.action';
-import { catchError, exhaustMap, map } from 'rxjs/operators';
+import { fetchError, fetchList, fetchSuccess, JsonServerActions } from '../actions/index.action';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { APIResponse, JsonData } from '../model/JsonData';
 import { of } from 'rxjs';
 
 @Injectable()
 export class FetchEffects {
-  @Effect()
   fetchList$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fetchList),
-      exhaustMap(action =>
+      switchMap(action =>
         this.httpService.fetch(action.url).pipe(
           map((response: APIResponse) =>
             response.list.map(
@@ -22,7 +21,7 @@ export class FetchEffects {
               }),
             ),
           ),
-          map((response: JsonData[]) => fetchSuccess({ response })),
+          map((result: JsonData[]) => fetchSuccess({ response: result })),
           catchError(error => of(fetchError(error))),
         ),
       ),
@@ -30,7 +29,7 @@ export class FetchEffects {
   );
 
   constructor(
-    private readonly actions$: Actions,
+    private readonly actions$: Actions<JsonServerActions>,
     private readonly httpService: HttpService,
   ) {}
 }
