@@ -20,6 +20,6 @@ export class ListComponent implements OnInit {
   }
 
   onClick() {
-    this.listService.fetchList();
+    this.listService.getList();
   }
 }
