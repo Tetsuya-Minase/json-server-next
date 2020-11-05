@@ -7,7 +7,7 @@ import { APIResponse, JsonData } from '../model/JsonData';
 import { of } from 'rxjs';
 
 @Injectable()
-export class FetchEffects {
+export class FetchEffect {
   fetchList$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fetchList),
