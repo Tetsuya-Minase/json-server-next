@@ -9,7 +9,7 @@ import { ListModule } from './page/list/list.module';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/index.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { FetchEffects } from './effects/fetch.effects';
+import { FetchEffect } from './effects/fetch.effect';
 import { HttpService } from './service/http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { EditModule } from './page/edit/edit.module';
@@ -29,7 +29,7 @@ import { FooterModule } from './common/component/footer/footer.module';
     HeaderModule,
     FooterModule,
     StoreModule.forRoot({ listReducer: reducer }),
-    EffectsModule.forRoot([FetchEffects]),
+    EffectsModule.forRoot([FetchEffect]),
     BrowserAnimationsModule,
   ],
   providers: [HttpService],

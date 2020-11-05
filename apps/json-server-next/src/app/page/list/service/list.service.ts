@@ -21,7 +21,6 @@ export class ListService {
   }
 
   fetchList(): void {
-    console.log('fetch');
     this.store.dispatch(fetchList({ url: 'api/v1/json' }));
   }
 }
