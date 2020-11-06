@@ -53,9 +53,12 @@ export class EditComponent{
    */
   register() {
     this.service.registerJsonData(
-      this.name.value,
-      this.rawData.value,
-      this.keyValueList.value,
+      {
+        name: this.name.value,
+        rawData: this.rawData.value,
+        keyValueList: this.keyValueList.value,
+        isRawData: this.isRawData
+      }
     );
   }
 

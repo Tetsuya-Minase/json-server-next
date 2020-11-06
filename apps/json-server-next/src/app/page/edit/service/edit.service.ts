@@ -4,25 +4,37 @@ import { register } from '../../../actions/index.action';
 import { Maybe } from '../../../common/types/utility';
 import { InvalidParamError } from '../../../model/errors/InvalidParamError';
 
+export type RegisterJsonDataParam = {
+  readonly name: Maybe<string>,
+  readonly rawData: Maybe<{ [key: string]: Maybe<string> }>,
+  readonly keyValueList: Maybe<{ [key: string]: Maybe<string> }[]>,
+  readonly isRawData: boolean
+}
+
 @Injectable()
 export class EditService {
-  constructor(private store: Store<{ editReducer: any }>) {}
+  constructor(private store: Store<{ editReducer: any }>) {
+  }
 
-  registerJsonData(
-    name: Maybe<string>,
-    rawData: Maybe<string>,
-    keyValueList: Maybe<{[key:string]: Maybe<string>}[]>,
-  ): void {
-    if (name == undefined || rawData == null || keyValueList == null) {
-      throw new InvalidParamError(`name or rawData, keyValueList is required.`);
+  registerJsonData({ name, rawData, keyValueList, isRawData }: RegisterJsonDataParam): void {
+    if (name == undefined) {
+      throw new InvalidParamError(`name is required.`);
     }
-    for (const item of keyValueList) {
-      for (const key of Object.keys(item)) {
-        if (key == undefined || item[key] == undefined) {
-          throw new InvalidParamError(`keyValueList is required.`);
-        }
+    if (isRawData) {
+      if (rawData == undefined) {
+        throw new InvalidParamError('rawData is required.');
       }
+      this.store.dispatch(register({name, data: rawData}));
     }
-    this.store.dispatch(register({name, data: null}));
+
+    const data = {};
+    for (const item of keyValueList) {
+      const values = Object.values(item);
+      if (values[0] == undefined || values[1] == undefined) {
+        throw new InvalidParamError(`keyValueList is required.`);
+      }
+      data[values[0]] = values[1];
+    }
+    this.store.dispatch(register({ name, data: data }));
   }
 }
