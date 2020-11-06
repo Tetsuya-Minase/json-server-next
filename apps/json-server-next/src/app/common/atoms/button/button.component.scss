@@ -33,3 +33,7 @@ $button-font-primary: #fff;
 .button--large {
   width: 300px;
 }
+
+.button:disabled {
+  opacity: 70%;
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import {
   AbstractControl,
   FormArray,
@@ -14,14 +14,14 @@ import { EditService } from '../service/edit.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class EditComponent {
+export class EditComponent{
   readonly formGroup = this.fb.group({
-    name: ['', Validators.required],
-    rawData: ['', [Validators.required, this.jsonValidator()]],
+    name: [null, Validators.required],
+    rawData: [null, [Validators.required, this.jsonValidator()]],
     keyValueList: this.fb.array([
       this.fb.group({
-        ['key0']: ['', Validators.required],
-        ['value0']: ['', Validators.required],
+        ['key0']: [null, Validators.required],
+        ['value0']: [null, Validators.required],
       }),
     ]),
   });
@@ -31,18 +31,6 @@ export class EditComponent {
     private readonly fb: FormBuilder,
     private readonly service: EditService,
   ) {}
-
-  get name() {
-    return this.formGroup.get('name');
-  }
-
-  get rawData() {
-    return this.formGroup.get('rawData');
-  }
-
-  get keyValueList() {
-    return this.formGroup.get('keyValueList') as FormArray;
-  }
 
   changeSlideToggle(event: MatSlideToggleChange) {
     this.isRawData = event.checked;
@@ -54,8 +42,8 @@ export class EditComponent {
   addList() {
     this.keyValueList.push(
       this.fb.group({
-        ['key' + this.keyValueList.length]: ['', Validators.required],
-        ['value' + this.keyValueList.length]: ['', Validators.required],
+        [`key${this.keyValueList.length}`]: [null, Validators.required],
+        [`value${this.keyValueList.length}`]: [null, Validators.required],
       }),
     );
   }
@@ -69,6 +57,25 @@ export class EditComponent {
       this.rawData.value,
       this.keyValueList.value,
     );
+  }
+
+  hasError() {
+    if (this.isRawData) {
+      return this.name.invalid || this.rawData.invalid;
+    }
+    return this.name.invalid || this.keyValueList.invalid;
+  }
+
+  get name() {
+    return this.formGroup.get('name');
+  }
+
+  get rawData() {
+    return this.formGroup.get('rawData');
+  }
+
+  get keyValueList() {
+    return this.formGroup.get('keyValueList') as FormArray;
   }
 
   private jsonValidator(): ValidatorFn {

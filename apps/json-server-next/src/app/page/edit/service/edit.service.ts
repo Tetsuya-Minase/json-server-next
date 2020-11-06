@@ -12,6 +12,9 @@ export class EditService {
     rawData: string,
     keyValueList: FormArray,
   ): void {
+    console.log('name: ', name);
+    console.log('rawData: ', rawData);
+    console.log('keyValueList: ', keyValueList);
     this.store.dispatch(register());
   }
 }
