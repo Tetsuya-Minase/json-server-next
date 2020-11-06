@@ -10,6 +10,6 @@ export const fetchSuccess = createAction(
 );
 export const fetchError = createAction('FETCH_ERROR', props<{ error: any }>());
 // FIXME: data type.
-export const register = createAction('REGISTER_DATA', props<{ name: string, data: {[key: string]: Maybe<string>}}>());
-
-export type JsonServerActions = ReturnType<typeof getList | typeof fetchList | typeof fetchSuccess | typeof fetchError | typeof register>;
+export const register = createAction('REGISTER_DATA', props<{ url: string, data: { [key: string]: Maybe<string> } }>());
+export const registerSuccess = createAction('REGISTER_SUCCESS');
+export type JsonServerActions = ReturnType<typeof getList | typeof fetchList | typeof fetchSuccess | typeof fetchError | typeof register | typeof registerSuccess>;
