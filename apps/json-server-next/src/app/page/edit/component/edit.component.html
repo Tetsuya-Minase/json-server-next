@@ -6,9 +6,9 @@
     </div>
     <div class="menu__button">
       <atom-button class="menu__register" buttonText="登録" type="primary" [disabled]="hasError()" (clickEvent)="register()"></atom-button>
-      <div [ngSwitch]="result">
-        <span *ngSwitchCase="'OK'">登録完了</span>
-        <span *ngSwitchCase="'NG'">登録失敗</span>
+      <div [ngSwitch]="result" class="menu__result">
+        <span *ngSwitchCase="'OK'" class=" menu__result--ok"><span class="material-icons">info</span>登録完了</span>
+        <span *ngSwitchCase="'ERROR'" class="menu__result--error"><span class="material-icons">error</span>登録失敗</span>
       </div>
     </div>
   </div>

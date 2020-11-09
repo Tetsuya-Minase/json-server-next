@@ -1,9 +1,11 @@
-<atom-button type="primary" buttonText="リロード" (clickEvent)="onClick()"></atom-button>
-<ul>
-  <li *ngFor="let item of list$ | async">
-    <details>
-      <summary>{{item.name}}</summary>
-      {{item.data | json}}
-    </details>
-  </li>
-</ul>
+<div class="list-wrapper">
+  <atom-button type="primary" buttonText="リロード" (clickEvent)="onClick()"></atom-button>
+  <ul class="list">
+    <li class="list__item" *ngFor="let item of list$ | async">
+      <details>
+        <summary>{{item.name}}</summary>
+        {{item.data | json}}
+      </details>
+    </li>
+  </ul>
+</div>

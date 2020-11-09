@@ -21,6 +21,24 @@
 .switch__before-text {
   margin-right: 8px;
 }
+.menu__result--ok {
+  background-color: $pale-green;
+  border: 1px solid $green;
+  border-radius: 4px;
+  color: $green;
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+.menu__result--error {
+  background-color: $thin-red;
+  border: 1px solid $red;
+  border-radius: 4px;
+  color: $red;
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
 
 .menu__register {
   display: inline-block;

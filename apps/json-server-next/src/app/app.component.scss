@@ -4,3 +4,12 @@
 html {
   color: $black
 }
+
+.app{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.app__main {
+  flex: 1 0 auto;
+}
