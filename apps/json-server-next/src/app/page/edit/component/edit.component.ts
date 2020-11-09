@@ -8,6 +8,8 @@ import {
 } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { EditService } from '../service/edit.service';
+import { RegisterResult } from '../../../common/types/register-result';
+import { select, Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-edit',
@@ -25,12 +27,19 @@ export class EditComponent{
       }),
     ]),
   });
+  result: RegisterResult;
   isRawData = false;
 
   constructor(
     private readonly fb: FormBuilder,
     private readonly service: EditService,
-  ) {}
+    private store: Store<{ registerReducer: any }>
+  ) {
+    store.pipe(select('registerReducer')).subscribe(
+      (res: RegisterResult) => this.result = res,
+      err => console.log(err)
+    );
+  }
 
   changeSlideToggle(event: MatSlideToggleChange) {
     this.isRawData = event.checked;
@@ -60,6 +69,9 @@ export class EditComponent{
         isRawData: this.isRawData
       }
     );
+    this.name.reset(null);
+    this.keyValueList.reset({key0: null, value0: null});
+    this.rawData.reset(null);
   }
 
   hasError() {

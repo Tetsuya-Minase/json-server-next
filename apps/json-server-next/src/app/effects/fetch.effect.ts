@@ -6,7 +6,7 @@ import {
   fetchList,
   fetchSuccess,
   JsonServerActions,
-  register,
+  register, registerError,
   registerSuccess
 } from '../actions/index.action';
 import { catchError, concatMap, map, switchMap } from 'rxjs/operators';
@@ -45,7 +45,7 @@ export class FetchEffect {
       ofType(register),
       concatMap(({ url, data }) => this.httpService.register(url, data)),
       map(() => registerSuccess()),
-      catchError(error => of(fetchError(error)))
+      catchError(error => of(registerError(error)))
     )
   );
 }

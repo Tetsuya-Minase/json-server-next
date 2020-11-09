@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { register } from '../../../actions/index.action';
 import { Maybe } from '../../../common/types/utility';
 import { InvalidParamError } from '../../../model/errors/InvalidParamError';
+import { Store } from '@ngrx/store';
 
 export type RegisterJsonDataParam = {
   readonly name: Maybe<string>,
@@ -13,8 +13,7 @@ export type RegisterJsonDataParam = {
 
 @Injectable()
 export class EditService {
-  constructor(private store: Store<{ editReducer: any }>) {
-  }
+  constructor(private store: Store<{ registerReducer: any }>) {}
 
   registerJsonData({ name, rawData, keyValueList, isRawData }: RegisterJsonDataParam): void {
     if (name == undefined) {
