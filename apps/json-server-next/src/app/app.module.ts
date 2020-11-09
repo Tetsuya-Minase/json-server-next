@@ -7,7 +7,7 @@ import { TopModule } from './page/top/top.module';
 import { ListModule } from './page/list/list.module';
 
 import { StoreModule } from '@ngrx/store';
-import { reducer } from './reducers/index.reducer';
+import { reducer, registerReducer } from './reducers/index.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { FetchEffect } from './effects/fetch.effect';
 import { HttpService } from './service/http.service';
@@ -28,7 +28,7 @@ import { FooterModule } from './common/component/footer/footer.module';
     EditModule,
     HeaderModule,
     FooterModule,
-    StoreModule.forRoot({ listReducer: reducer }),
+    StoreModule.forRoot({ listReducer: reducer, registerReducer: registerReducer }),
     EffectsModule.forRoot([FetchEffect]),
     BrowserAnimationsModule,
   ],
