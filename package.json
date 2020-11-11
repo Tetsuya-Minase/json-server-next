@@ -2,7 +2,6 @@
   "name": "json-server-next",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "dist/main.js",
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
@@ -30,7 +29,9 @@
     "help": "nx help",
     "firebase": "firebase",
     "firebase:deploy": "firebase deploy",
-    "firebase:local": "firebase emulators:start"
+    "firebase:local": "firebase emulators:start",
+    "firebase:local:functions": "firebase emulators:start --only functions",
+    "copy:package": "node tools/scripts/copy-package.js"
   },
   "private": true,
   "dependencies": {
@@ -91,5 +92,8 @@
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
     "typescript": "~4.0.3"
+  },
+  "engines": {
+    "node": 12
   }
 }
