@@ -17,7 +17,7 @@ import { ListRequestQueryBuilder } from '../../../domain/model/query/ListRequest
 /**
  * JsonController for web app.
  */
-@Controller('/api/v1/json')
+@Controller('/v1/json')
 export class JsonController {
   constructor(private readonly service: JsonApiService) {}
 
