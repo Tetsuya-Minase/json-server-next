@@ -30,7 +30,6 @@
     "firebase": "firebase",
     "firebase:deploy": "firebase deploy",
     "firebase:local": "firebase emulators:start",
-    "firebase:local:functions": "firebase emulators:start --only functions",
     "copy:package": "node tools/scripts/copy-package.js"
   },
   "private": true,

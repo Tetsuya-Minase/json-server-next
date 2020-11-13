@@ -23,7 +23,7 @@ export class EditService {
       if (rawData == undefined) {
         throw new InvalidParamError('rawData is required.');
       }
-      this.store.dispatch(register({url: `/api/v1/json/${name}`, data: rawData}));
+      this.store.dispatch(register({url: `/v1/json/${name}`, data: rawData}));
     }
 
     const data = {};
@@ -34,6 +34,6 @@ export class EditService {
       }
       data[values[0]] = values[1];
     }
-    this.store.dispatch(register({url: `/api/v1/json/${name}`, data }));
+    this.store.dispatch(register({url: `/v1/json/${name}`, data }));
   }
 }
