@@ -4,11 +4,30 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "public",
+    "public": "dist/public/template",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/v1/**/*",
+        "function": "api"
+      },
+      {
+        "source": "/*[!v1]*/**",
+        "destination": "/"
+      }
+    ],
+    "predeploy": [
+      "npm run affected:build"
+    ]
+  },
+  "functions": {
+    "source": "dist/functions",
+    "predeploy": [
+      "npm run nx -- 'build api'"
     ]
   }
 }
