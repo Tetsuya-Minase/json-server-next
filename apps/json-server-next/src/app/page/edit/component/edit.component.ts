@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import {
   AbstractControl,
-  FormArray,
-  FormBuilder,
   ValidatorFn,
   Validators,
 } from '@angular/forms';
@@ -10,6 +8,17 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { EditService } from '../service/edit.service';
 import { RegisterResult } from '../../../common/types/register-result';
 import { select, Store } from '@ngrx/store';
+import { FormArray, FormBuilder, FormGroup } from '@ngneat/reactive-forms';
+
+interface IKeyValueList {
+  [key: string]: string | null,
+}
+
+interface IEditFormGroup {
+  name: string | null,
+  rawData: string | null,
+  keyValueList:IKeyValueList[]
+}
 
 @Component({
   selector: 'app-edit',
@@ -17,7 +26,7 @@ import { select, Store } from '@ngrx/store';
   styleUrls: ['./edit.component.scss'],
 })
 export class EditComponent{
-  readonly formGroup = this.fb.group({
+  readonly formGroup: FormGroup<IEditFormGroup> = this.fb.group({
     name: [null, Validators.required],
     rawData: [null, [Validators.required, this.jsonValidator()]],
     keyValueList: this.fb.array([
@@ -70,7 +79,7 @@ export class EditComponent{
       }
     );
     this.name.reset(null);
-    this.keyValueList.reset({key0: null, value0: null});
+    this.keyValueList.reset([{key0: null, value0: null}]);
     this.rawData.reset(null);
   }
 
