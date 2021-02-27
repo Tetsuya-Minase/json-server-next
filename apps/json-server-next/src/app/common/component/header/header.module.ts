@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
-import { RouterLinkComponent } from '../../atoms/router-link/router-link.component';
-import { RouterModule } from '@angular/router';
+import { RouterLinkModule } from '../../atoms/router-link/router-link.module';
 
 @NgModule({
-  declarations: [HeaderComponent, RouterLinkComponent],
-  imports: [CommonModule, RouterModule],
-  exports: [HeaderComponent],
+  declarations: [HeaderComponent],
+  imports: [CommonModule, RouterLinkModule],
+  exports: [HeaderComponent]
 })
-export class HeaderModule {}
+export class HeaderModule {
+}
