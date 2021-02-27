@@ -1,6 +1,6 @@
-<div class="list-wrapper">
+<section class="list">
   <atom-button type="primary" buttonText="リロード" (clickEvent)="onClick()"></atom-button>
-  <ul class="list">
+  <ul>
     <li class="list__item" *ngFor="let item of list$ | async">
       <details>
         <summary>{{item.name}}</summary>
@@ -8,4 +8,4 @@
       </details>
     </li>
   </ul>
-</div>
+</section>
