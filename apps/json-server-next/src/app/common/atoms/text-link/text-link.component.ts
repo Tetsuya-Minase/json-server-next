@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { LinkValue } from '../../../model/objects/LinkValue';
+import { ButtonLink, ImageLink, LinkValue, TextLink } from '../../../model/objects/LinkValue';
 
 @Component({
   selector: 'text-link',
@@ -7,5 +7,17 @@ import { LinkValue } from '../../../model/objects/LinkValue';
   styleUrls: ['./text-link.component.scss']
 })
 export class TextLinkComponent {
-  @Input() linkObject: LinkValue;
+  @Input() linkValue: LinkValue;
+
+  isTextLink(linkValue: LinkValue): linkValue is TextLink {
+    return linkValue.type === 'text';
+  }
+
+  isButtonLink(linkValue: LinkValue): linkValue is ButtonLink {
+    return linkValue.type === 'button';
+  }
+
+  isImageLink(linkValue: LinkValue): linkValue is ImageLink {
+    return linkValue.type === 'image';
+  }
 }

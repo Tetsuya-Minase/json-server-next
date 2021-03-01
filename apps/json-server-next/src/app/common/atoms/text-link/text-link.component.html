@@ -1,1 +1,3 @@
-<a [routerLink]="linkObject.url">{{linkObject.text}}</a>
+<a *ngIf="isTextLink(linkValue)" [routerLink]="linkValue.url">{{linkValue.text}}</a>
+<a *ngIf="isButtonLink(linkValue)" class="button" [routerLink]="linkValue.url">{{linkValue.text}}</a>
+<a *ngIf="isImageLink(linkValue)" [routerLink]="linkValue.url">{{linkValue.imageUrl}}</a>

@@ -8,10 +8,12 @@ import { Component } from '@angular/core';
 export class TopComponent {
   readonly links = {
     edit: {
+      type: 'text',
       url: '/edit',
       text: '登録ページ'
     },
     list: {
+      type: 'text',
       url: '/list',
       text: '登録内容一覧'
     }
