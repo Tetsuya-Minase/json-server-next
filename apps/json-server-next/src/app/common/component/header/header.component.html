@@ -1,9 +1,13 @@
 <header class="header">
-  <a routerLink="/" class="header__logo"><img src="../../../../assets/logo.svg" alt="json_server"></a>
+  <text-link [linkValue]="links.top"></text-link>
   <nav class="header__nav">
-    <ul class="nav__list">
-      <li><a class="nav__item" routerLink="/edit">編集</a></li>
-      <li><a class="nav__item" routerLink="/list">一覧</a></li>
+    <ul class="header__list">
+      <li>
+        <text-link [linkValue]="links.edit" class="header__item"></text-link>
+      </li>
+      <li>
+        <text-link [linkValue]="links.list" class="header__item"></text-link>
+      </li>
     </ul>
   </nav>
 </header>

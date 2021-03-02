@@ -11,17 +11,18 @@ $item-width: 250px;
   height: 75px;
 }
 
-.header__logo{
+.header__logo {
   display: block;
   height: $item-height;
 }
+
 .header__nav {
   align-items: center;
   display: flex;
   justify-content: space-around;
 }
 
-.nav__list{
+.header__list {
   display: flex;
   justify-content: space-around;
   list-style: none;
@@ -29,7 +30,7 @@ $item-width: 250px;
   width: 700px;
 }
 
-.nav__item {
+.header__item {
   border: $header-border-black solid 1px;
   color: $header-link-black;
   display: block;
