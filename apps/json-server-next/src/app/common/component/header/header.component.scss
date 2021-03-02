@@ -2,11 +2,10 @@
 @import "../../css/_variable.scss";
 
 $item-height: 50px;
-$item-width: 250px;
 
 .header {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   height: 75px;
 }
@@ -17,15 +16,15 @@ $item-width: 250px;
 }
 
 .header__nav {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: space-around;
+  width: 100%;
 }
 
 .header__list {
   display: flex;
   justify-content: space-around;
   list-style: none;
-  margin-right: $item-width;
-  width: 700px;
+  width: 100%;
 }
