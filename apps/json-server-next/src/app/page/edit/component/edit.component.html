@@ -5,7 +5,8 @@
       <mat-slide-toggle (change)="changeSlideToggle($event)">Raw Data.</mat-slide-toggle>
     </div>
     <div class="menu__button">
-      <atom-button class="menu__register" buttonText="登録" type="primary" [disabled]="hasError()" (clickEvent)="register()"></atom-button>
+      <a-button class="menu__register" buttonText="登録" type="primary" [disabled]="hasError()"
+                (clickEvent)="register()"></a-button>
       <div [ngSwitch]="result" class="menu__result">
         <span *ngSwitchCase="'OK'" class=" menu__result--ok"><span class="material-icons">info</span>登録完了</span>
         <span *ngSwitchCase="'ERROR'" class="menu__result--error"><span class="material-icons">error</span>登録失敗</span>
@@ -20,14 +21,15 @@
     </div>
     <div *ngIf="isRawData; else KeyValue">
       <label>
-        Raw Data:<br/>
+        Raw Data:<br />
         <textarea class="form__raw-data__area" formControlName="rawData"></textarea>
       </label>
       <app-form-error [form]="rawData"></app-form-error>
     </div>
     <ng-template #KeyValue>
       <div formArrayName="keyValueList">
-        <atom-button class="form__key-value__button" size="small" buttonText="Add List" (clickEvent)="addList()"></atom-button>
+        <a-button class="form__key-value__button" size="small" buttonText="Add List"
+                  (clickEvent)="addList()"></a-button>
         <div *ngFor="let keyValue of keyValueList.controls; let i = index">
           <div class="form__key-value__data" [formGroupName]="i">
             <label>
