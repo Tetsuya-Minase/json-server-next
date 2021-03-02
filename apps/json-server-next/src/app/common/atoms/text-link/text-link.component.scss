@@ -1,7 +1,16 @@
 @charset "UTF-8";
 @import "../../css/_variable";
 
-a:visited {
+.text:visited {
   color: $purple;
 }
 
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: #000;
+  color: #333;
+  text-decoration: none;
+  width: 250px;
+}

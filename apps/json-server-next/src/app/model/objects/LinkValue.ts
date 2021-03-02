@@ -12,6 +12,7 @@ export type ImageLink = {
   readonly type: 'image';
   readonly url: string;
   readonly imageUrl: string;
+  readonly alt: string;
 };
 
 export type LinkValue = TextLink | ButtonLink | ImageLink;
