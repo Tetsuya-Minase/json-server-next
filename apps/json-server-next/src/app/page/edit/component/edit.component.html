@@ -1,37 +1,38 @@
-<div class="edit">
-  <div class="menu">
-    <div class="menu__switch">
-      <span class="switch__before-text">Key-Value Data.</span>
+<section class="edit">
+  <div class="edit__menu">
+    <div class="edit__menu__toggle">
+      <span class="edit__menu__toggle__text">Key-Value Data.</span>
       <mat-slide-toggle (change)="changeSlideToggle($event)">Raw Data.</mat-slide-toggle>
     </div>
-    <div class="menu__button">
-      <a-button class="menu__register" buttonText="登録" type="primary" [disabled]="hasError()"
+    <div class="edit__menu__button">
+      <a-button class="edit__menu__button__register" buttonText="登録" type="primary" [disabled]="hasError()"
                 (clickEvent)="register()"></a-button>
-      <div [ngSwitch]="result" class="menu__result">
-        <span *ngSwitchCase="'OK'" class=" menu__result--ok"><span class="material-icons">info</span>登録完了</span>
-        <span *ngSwitchCase="'ERROR'" class="menu__result--error"><span class="material-icons">error</span>登録失敗</span>
-      </div>
+      <ng-container [ngSwitch]="result" class="edit__menu__result">
+        <span *ngSwitchCase="'OK'" class=" edit__menu__result--ok"><span class="material-icons">info</span>登録完了</span>
+        <span *ngSwitchCase="'ERROR'" class="edit__menu__result--error"><span
+          class="material-icons">error</span>登録失敗</span>
+      </ng-container>
     </div>
   </div>
-  <form [formGroup]="formGroup" class="form">
-    <div class="form__name">
-      <label class="form__name__label">name: <input class="form__name__input" formControlName="name"
-                                                    type="text"></label>
+  <form [formGroup]="formGroup" class="edit__form">
+    <div class="edit__form__name">
+      <label class="edit__form__name__label">name: <input class="edit__form__name__input" formControlName="name"
+                                                          type="text"></label>
       <app-form-error [form]="name"></app-form-error>
     </div>
     <div *ngIf="isRawData; else KeyValue">
       <label>
         Raw Data:<br />
-        <textarea class="form__raw-data__area" formControlName="rawData"></textarea>
+        <textarea class="edit__form__raw-data__area" formControlName="rawData"></textarea>
       </label>
       <app-form-error [form]="rawData"></app-form-error>
     </div>
     <ng-template #KeyValue>
       <div formArrayName="keyValueList">
-        <a-button class="form__key-value__button" size="small" buttonText="Add List"
+        <a-button class="edit__form__key-value__button" size="small" buttonText="Add List"
                   (clickEvent)="addList()"></a-button>
         <div *ngFor="let keyValue of keyValueList.controls; let i = index">
-          <div class="form__key-value__data" [formGroupName]="i">
+          <div class="edit__form__key-value__data" [formGroupName]="i">
             <label>
               key: <input [formControlName]="'key' + i" type="text">
             </label>
@@ -43,4 +44,4 @@
       </div>
     </ng-template>
   </form>
-</div>
+</section>
