@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopComponent } from './component/top.component';
 import { RouterModule } from '@angular/router';
-import { TextLinkModule } from '../../common/atoms/text-link/text-link.module';
+import { LinkModule } from '../../common/atoms/link/link.module';
 
 @NgModule({
   declarations: [TopComponent],
-  imports: [CommonModule, RouterModule, TextLinkModule],
+  imports: [CommonModule, RouterModule, LinkModule],
   exports: [TopComponent]
 })
 export class TopModule {
