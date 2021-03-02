@@ -1,0 +1,17 @@
+@charset "UTF-8";
+@import "../../css/_variable";
+
+.text:visited {
+  color: $visited-link-color;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $border-color;
+  color: $text-color;
+  text-decoration: none;
+  height: 50px;
+  width: 200px;
+}

@@ -1,17 +1,23 @@
 @charset "UTF-8";
 
 // colors
-$black: #333;
-$gray: #ddd;
+$text-color: #333;
 $thin-red: #fadbda;
 $red: #ff0010;
-$purple: #4c2472;
 $green: #2e8b57;
 $pale-green: #b8e6cb;
+// edit
+$edit-form-text-color: #ddd;
+
+// link color
+$visited-link-color: #4c2472;
+
+// border
+$border-color: #000;
 
 // header
-$header-link-black: #333;
-$header-border-black: #000;
+$header-link-text-color: #333;
+$header-border-color: #000;
 
 // edit page
 $edit-font-black: #333;

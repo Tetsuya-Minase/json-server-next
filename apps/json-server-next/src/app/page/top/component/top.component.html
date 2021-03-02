@@ -2,7 +2,11 @@
   <h1 class="top__title">JSON SERVER</h1>
   <p>返すJSONを設定するWebページ</p>
   <ul class="top__page-list">
-    <li><a routerLink="/edit">登録ページ</a></li>
-    <li><a routerLink="/list">登録内容一覧</a></li>
+    <li>
+      <a-link [linkValue]="links.edit"></a-link>
+    </li>
+    <li>
+      <a-link [linkValue]="links.list"></a-link>
+    </li>
   </ul>
 </section>

@@ -4,12 +4,12 @@ import { EditComponent } from './component/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditRoutingModule } from './edit-routing.module';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { FormErrorComponent } from '../../common/component/form-error/form-error.component';
 import { EditService } from './service/edit.service';
 import { ButtonModule } from '../../common/atoms/button/button.module';
+import { FormErrorModule } from '../../common/component/form-error/form-error.module';
 
 @NgModule({
-  declarations: [EditComponent, FormErrorComponent],
+  declarations: [EditComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,7 +17,9 @@ import { ButtonModule } from '../../common/atoms/button/button.module';
     EditRoutingModule,
     MatSlideToggleModule,
     ButtonModule,
+    FormErrorModule
   ],
-  providers: [EditService],
+  providers: [EditService]
 })
-export class EditModule {}
+export class EditModule {
+}
