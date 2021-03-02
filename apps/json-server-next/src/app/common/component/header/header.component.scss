@@ -29,14 +29,3 @@ $item-width: 250px;
   margin-right: $item-width;
   width: 700px;
 }
-
-.header__item {
-  border: $header-border-black solid 1px;
-  color: $header-link-black;
-  display: block;
-  height: $item-height;
-  width: $item-width;
-  line-height: $item-height;
-  text-align: center;
-  text-decoration: none;
-}
